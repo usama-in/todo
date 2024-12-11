@@ -33,12 +33,12 @@ console.log(toDos)
   return (
     <div className=" text-text-color">
       <span className="">
-        <Link className="save-btn flex justify-center items-center " to={"/create"}>
+        <Link className="save-btn flex flex-col sm:flex-row justify-center items-center " to={"/create"}>
           ADD TODO
         </Link>
       </span>
       {toDos.length===0 ? (
-        <p className="text-black flex justify-center items-center">
+        <p className="text-black flex  justify-center items-center">
           Nothing in Tasks List ADD one!
         </p>
       ) : (
