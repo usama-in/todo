@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className="w-screen">
       <header className="bg-background w-[100vw] h-auto text-text-color flex flex-col justify-center items-center ">
-        <p className="text-[22px] md:text-[30px]">
+        <p className="text-22px md:text-30px">
           Stay Organized, Stay Productive!
         </p>
         <p>

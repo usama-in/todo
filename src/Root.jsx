@@ -6,7 +6,7 @@ const Root = () => {
   return (
     <div>
       <Header />
-      <main className="mt-[2rem] ml-auto mr-auto w-[60vw]">
+      <main className=" mt-2rem ml-auto mr-auto w-60vw">
         <Outlet />
       </main>
     </div>

@@ -29,7 +29,7 @@ const Todos = () => {
   }
 
   
-console.log(toDos)
+
   return (
     <div className=" text-text-color">
       <span className="">
