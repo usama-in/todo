@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../ui/Card";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Box, Button, ButtonBase, Container, Stack, Typography } from "@mui/material";
 
 const Todos = () => {
  
@@ -31,7 +32,36 @@ const Todos = () => {
   
 console.log(toDos)
   return (
-    <div className=" text-text-color">
+    <>
+    <Box className="text-text-color gap-2 !flex flex-col items-center">
+      <Button variant="contained" className="text-text-color flex justify-center items-center ">
+      <Link to={'/create'}>
+       ADD TODO
+       </Link>
+      </Button >
+      {toDos.length===0 ? (
+        
+          <Typography className="text-black flex  justify-center items-center ">
+          Nothing in Tasks List ADD one!
+        </Typography>
+        
+        
+      ) : (
+        toDos.map((item) => (
+          <Card
+          item={item}
+            title={item.title}
+            des={item.description}
+            status={item.status}
+            key={item.id}
+            id={item.id}
+            deleteTodo={handleDelete}
+            
+          />
+        ))
+      )}
+    </Box>
+    {/* <div className=" ">
       <span className="">
         <Link className="save-btn flex flex-col sm:flex-row justify-center items-center " to={"/create"}>
           ADD TODO
@@ -55,7 +85,8 @@ console.log(toDos)
           />
         ))
       )}
-    </div>
+    </div> */}
+    </>
   );
 };
 
