@@ -12,7 +12,7 @@ import router from "./Routes";
 function App() {
 
  
-  console.log(router)
+  
 
  
 
