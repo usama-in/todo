@@ -58,7 +58,7 @@ const FormComponent = ({ item = {}, isEditMode = false }) => {
       }
     }
   };
-console.log(todoData)
+
 
   //navigate to main page
   const handleCancel = (event) => {
@@ -70,197 +70,81 @@ console.log(todoData)
 
     <Box
       component="form"
-      className="max-w-lg w-auto mx-auto p-4 border rounded-md shadow-md space-y-4"
-      
+      onSubmit={handleSubmit}
       autoComplete="off"
+      sx={{
+        maxWidth: 500,
+        margin: "auto",
+        padding: 3,
+        border: "1px solid #ccc",
+        borderRadius: 2,
+        boxShadow: 2,
+      }}
     >
-      {/* <Paper> */}
-      <Typography variant="h4" className="text-center text-gray-700">
-        {isEditMode ? 'Edit Todo': 'Create Todo'}
+      <Typography variant="h5" align="center" marginBottom={2}>
+        {isEditMode ? "Edit Todo" : "Create Todo"}
       </Typography>
-      
 
-    <div>
-      <form className="max-w-lg mx-auto p-6 bg-background text-text-color rounded-lg shadow-md">
-        <h1 className="text-center mb-5 text-18px font-bold">
-          {isEditMode ? <p>Edit Todo</p> : <p>Create New ToDo</p>}
-        </h1>
-        <div className=" grid grid-cols-1 gap-4 sm:grid-cols-2 items-center mb-4">
-          {/* Title Field */}
-          <label
-            htmlFor="title"
-            className="text-center sm:text-right font-medium "
-          >
-            Title
-          </label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            className="px-3 py-2 border rounded-md focus:ring focus:ring-blue-300  text-black"
-            placeholder="Enter title"
-            onChange={handleChange}
-            required
-            value={todoData.title}
-          />
-        </div>
-
-
-      {/* Title Input */}
+      {/* Title */}
       <TextField
         label="Title"
         variant="outlined"
         fullWidth
-        className="bg-white"
         required
-        onChange={handleChange}
-        name='title'
+        margin="normal"
+        name="title"
         value={todoData.title}
+        onChange={handleChange}
       />
 
-      {/* Description Input */}
+      {/* Description */}
       <TextField
         label="Description"
         variant="outlined"
-        multiline
-        rows={2}
         fullWidth
-        className="bg-white"
-        onChange={handleChange}
-        name='description'
+        required
+        margin="normal"
+        multiline
+        rows={3}
+        name="description"
         value={todoData.description}
+        onChange={handleChange}
       />
 
-      {/* Radio Buttons */}
-      <RadioGroup row className="flex justify-around">
+      {/* Status */}
+      <Typography variant="body1" marginTop={2}>
+        Status
+      </Typography>
+      <RadioGroup
+        row
+        value={todoData.status}
+        onChange={handleChange}
+        name="status"
+        sx={{ justifyContent: "space-between", marginBottom: 2 }}
+      >
         <FormControlLabel
           value="completed"
           control={<Radio />}
           label="Completed"
-          className="text-gray-700"
-          onChange={handleChange}
-          name='status'
-          checked={todoData.status ==='completed'}
         />
         <FormControlLabel
           value="inProgress"
           control={<Radio />}
           label="In Progress"
-          className="text-gray-700"
-          onChange={handleChange}
-          name='status'
-          checked={todoData.status ==='inProgress'}
         />
       </RadioGroup>
 
-      {/* Submit Button */}
-      <Box className='flex justify-center items-center gap-3'>
-      <Button
-        onClick={handleSubmit}
-        variant="contained"
-        className=" text-white w-[5rem] "
-        type="submit"
-      >
-        {isEditMode ? 'Edit' : 'Create'}
-      </Button>
-      <Button
-        onClick={handleCancel}
-        variant="contained"
-        className=" text-white w-[5rem] !bg-delete-button "
-      >
-        Cancel
-      </Button>
+      {/* Actions */}
+      <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
+        <Button type="submit" variant="contained" color="primary">
+          {isEditMode ? "Edit" : "Create"}
+        </Button>
+        <Button variant="outlined" color="secondary" onClick={handleCancel}>
+          Cancel
+        </Button>
       </Box>
-      {/* </Paper> */}
     </Box>
-    // <div>
-    //   <form className="max-w-lg mx-auto p-6 bg-background text-text-color rounded-lg shadow-md">
-    //     <h1 className="text-center mb-5 text-[18px] font-bold">
-    //       {isEditMode ? <p>Edit Todo</p> : <p>Create New ToDo</p>}
-    //     </h1>
-    //     <div className=" grid grid-cols-1 gap-4 sm:grid-cols-2 items-center mb-4">
-    //       {/* Title Field */}
-    //       <label
-    //         htmlFor="title"
-    //         className="text-center sm:text-right font-medium "
-    //       >
-    //         Title
-    //       </label>
-    //       <input
-    //         type="text"
-    //         id="title"
-    //         name="title"
-    //         className="px-3 py-2 border rounded-md focus:ring focus:ring-blue-300  text-black"
-    //         placeholder="Enter title"
-    //         onChange={handleChange}
-    //         required
-    //         value={todoData.title}
-    //       />
-    //     </div>
-
-    //     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center mb-4">
-    //       {/* Description Field */}
-    //       <label
-    //         htmlFor="description"
-    //         className="text-center sm:text-right font-medium"
-    //       >
-    //         Description
-    //       </label>
-    //       <textarea
-    //         id="description"
-    //         rows="4"
-    //         name="description"
-    //         className="px-3 py-2 border rounded-md focus:ring focus:ring-blue-300  text-black"
-    //         placeholder="Enter description"
-    //         required
-    //         onChange={handleChange}
-    //         value={todoData.description}
-    //       ></textarea>
-    //     </div>
-
-    //     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center mb-4">
-    //       {/* Radio Buttons */}
-    //       <label className="text-center sm:text-right font-medium ">
-    //         Choose Option
-    //       </label>
-    //       <div className="flex items-center space-x-4">
-    //         <label className="flex items-center space-x-2">
-    //           <input
-    //             type="radio"
-    //             name="status"
-    //             value="completed"
-    //             className="focus:ring focus:ring-blue-300"
-    //             required
-    //             onChange={handleChange}
-    //             checked={todoData.status === "completed"}
-    //           />
-    //           <span>Completed</span>
-    //         </label>
-    //         <label className="flex items-center space-x-2">
-    //           <input
-    //             type="radio"
-    //             name="status"
-    //             value="inProgress"
-    //             className="focus:ring focus:ring-blue-300"
-    //             required
-    //             onChange={handleChange}
-    //             checked={todoData.status === "inProgress"}
-    //           />
-    //           <span>In Progress</span>
-    //         </label>
-    //       </div>
-    //     </div>
-
-    //     <div className="text-center sm:text-right">
-    //       <button className="custom-btn" onClick={handleSubmit}>
-    //         {isEditMode ? "Edit" : "Create"}
-    //       </button>
-    //       <button className="delete-button" onClick={handleCancel}>
-    //         Cancel
-    //       </button>
-    //     </div>
-    //   </form>
-    // </div>
+    
   );
 };
 
