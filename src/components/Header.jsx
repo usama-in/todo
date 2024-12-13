@@ -12,9 +12,14 @@ const Header = () => {
   console.log(day, month, year);
 
   return (
-    <div className="w-screen">
-      <header className="bg-background w-[100vw] h-auto text-text-color flex flex-col justify-center items-center ">
+    <div className="w-full">
+      <header className="bg-background w-full h-auto text-text-color flex flex-col justify-center items-center ">
         <p className="text-22px md:text-30px">
+
+    <div className="w-full">
+      <header className="bg-background w-full h-auto text-text-color flex flex-col justify-center items-center ">
+        <p className="text-22px md:text-30px">
+
           Stay Organized, Stay Productive!
         </p>
         <p>
