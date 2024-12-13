@@ -26,12 +26,12 @@ const Card = ({title,des,status,id,deleteTodo,editTodo,item}) => {
             </Typography>
            </Grid>
            <Grid item  xs={12} md={6}>
-            <Typography className='!font-bold   text-center sm:text-end '>
+            <Typography className='!font-bold   text-center sm:text-end  '>
              Description:
             </Typography>
            </Grid>
            <Grid item  xs={12} md={6}>
-            <Typography className=' ' sx={{wordWrap:'break-word'}}>
+            <Typography className='' sx={{wordWrap:'break-word'}}>
               {des}
             </Typography>
            </Grid>
