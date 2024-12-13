@@ -30,7 +30,7 @@ const Todos = () => {
   }
 
   
-console.log(toDos)
+
   return (
     <>
     <Box className="text-text-color gap-2 !flex flex-col items-center">

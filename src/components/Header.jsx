@@ -14,7 +14,12 @@ const Header = () => {
   return (
     <div className="w-full">
       <header className="bg-background w-full h-auto text-text-color flex flex-col justify-center items-center ">
-        <p className="text-[22px] md:text-[30px]">
+        <p className="text-22px md:text-30px">
+
+    <div className="w-full">
+      <header className="bg-background w-full h-auto text-text-color flex flex-col justify-center items-center ">
+        <p className="text-22px md:text-30px">
+
           Stay Organized, Stay Productive!
         </p>
         <p>
