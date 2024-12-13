@@ -67,6 +67,7 @@ console.log(todoData)
   };
 
   return (
+
     <Box
       component="form"
       className="max-w-lg w-auto mx-auto p-4 border rounded-md shadow-md space-y-4"
@@ -78,6 +79,32 @@ console.log(todoData)
         {isEditMode ? 'Edit Todo': 'Create Todo'}
       </Typography>
       
+
+    <div>
+      <form className="max-w-lg mx-auto p-6 bg-background text-text-color rounded-lg shadow-md">
+        <h1 className="text-center mb-5 text-18px font-bold">
+          {isEditMode ? <p>Edit Todo</p> : <p>Create New ToDo</p>}
+        </h1>
+        <div className=" grid grid-cols-1 gap-4 sm:grid-cols-2 items-center mb-4">
+          {/* Title Field */}
+          <label
+            htmlFor="title"
+            className="text-center sm:text-right font-medium "
+          >
+            Title
+          </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            className="px-3 py-2 border rounded-md focus:ring focus:ring-blue-300  text-black"
+            placeholder="Enter title"
+            onChange={handleChange}
+            required
+            value={todoData.title}
+          />
+        </div>
+
 
       {/* Title Input */}
       <TextField
